@@ -416,7 +416,7 @@ struct json_object* json_tokener_parse_ex(struct json_tokener *tok,
 	while(1) {
 	  if(c == tok->quote_char) {
 	    printbuf_memappend_fast(tok->pb, case_start, str-case_start);
-	    current = json_object_new_string_len(tok->pb->buf, tok->pb->bpos);
+	    current = json_object_new_string(tok->pb->buf);
 	    saved_state = json_tokener_state_finish;
 	    state = json_tokener_state_eatws;
 	    break;
