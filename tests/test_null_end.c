@@ -15,7 +15,7 @@ int main()
 	// this test has a space after the null character. check that it's still included
 	const char *input = " \0";
 	const char *expected = "\" \\u0000\"";
-	struct json_object *string = json_object_new_string_len(input, 3);
+	struct json_object *string = json_object_new_string_len(input, 2);
 	const char *json = json_object_to_json_string(string);
 
 	int strings_match =  !strcmp( expected, json);
